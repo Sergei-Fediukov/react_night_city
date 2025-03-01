@@ -11,6 +11,8 @@ const CustomCameraControls = () => {
   useEffect(() => {
     const controls = cameraControlsRef.current
     controls.mouseButtons.left = 0
+    controls.mouseButtons.right = 0
+
     const handleMouseMove = (event: any) => {
       mouse.current.x = (event.clientX / window.innerWidth) * 2 - 1
       mouse.current.y = -(event.clientY / window.innerHeight) * 2 + 1

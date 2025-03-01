@@ -1,5 +1,7 @@
-export function buildBabelLoader() {
-  // const isDevelopment = mode === BuildMode.DEVELOPMENT
+import { BuildMode, BuildOptions } from '../types/index'
+
+export function buildBabelLoader({ mode }: BuildOptions) {
+  const isDevelopment = mode === BuildMode.DEVELOPMENT
   const plugins = ['babel-plugin-macros']
 
   return {
@@ -15,7 +17,7 @@ export function buildBabelLoader() {
             '@babel/preset-react',
             {
               // runtime: isDevelopment ? 'automatic' : 'classic'
-              runtime: 'automatic'
+              runtime: isDevelopment ? 'automatic' : 'automatic'
             }
           ]
         ],
